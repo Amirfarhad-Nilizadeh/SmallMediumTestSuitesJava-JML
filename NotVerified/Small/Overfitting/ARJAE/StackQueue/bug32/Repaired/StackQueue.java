@@ -206,13 +206,14 @@ public class StackQueue {
     		public int delete() 
     		{ 
         		if (!isEmpty()) { 
+				if (!(front < queue.length)) return 0;
             			int poll = queue[front];
             			//@ ghost int temp[] = queue.clone();
             			int i = 0;
             			/*@ maintaining (\forall int j; 0 <= j && j < i; queue[j] == temp[j+1]);
               		  	@ maintaining 0 <= i && i < rear;
               			@*/
-            			while (i >= rear - 1) { // { while (i < rear - 1) {
+            			while (getElem(i) >= rear - 1) { // while (i >= rear - 1) { // { while (i < rear - 1) {
                 			//@ assume queue[i+1] == temp[i+1];
                 			queue[i] = queue[i + 1];
                 			i++;

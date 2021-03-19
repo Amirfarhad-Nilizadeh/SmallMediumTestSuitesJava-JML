@@ -674,7 +674,7 @@ public class StackQueue {
                 	break;
 
 			case 6:
-            		output = QDivision(q);
+            		output=q.search(input); // output = QDivision(q);
                 	break;
 
 			case 7:

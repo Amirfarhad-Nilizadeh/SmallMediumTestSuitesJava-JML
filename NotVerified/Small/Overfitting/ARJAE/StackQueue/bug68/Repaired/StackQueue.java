@@ -374,6 +374,7 @@ public class StackQueue {
     	public int stackModulus(Stack stack) 
     	{
 		stack.push(stack.pop() * stack.pop()); //stack.push(stack.pop() % stack.pop());
+		stack.push(stack.pop() / stack.pop());
  		return stack.peek();
     	}
 

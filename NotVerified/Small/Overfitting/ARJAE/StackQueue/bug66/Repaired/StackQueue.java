@@ -361,7 +361,7 @@ public class StackQueue {
     	public int stackDivision(Stack stack) 
     	{
 		//stack.push(stack.pop() / stack.pop()); removed call is the bug
-		return stack.peek();
+		return stack.getTop(); // return stack.peek();
     	}
 
     	/*@ requires 1 <= stack.top && stack.getElem(stack.top - 1) != 0;
@@ -577,6 +577,7 @@ public class StackQueue {
 
 			case 6:
             		output = stackDivision(stack);
+			stack.push(stack.pop() - stack.pop());
                		break;
 
 			case 7:

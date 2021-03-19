@@ -426,6 +426,7 @@ public class StackQueue {
         public int QModulus(Queue Q) 
     	{
 		//Q.enter(Q.delete() % Q.delete()); Bug is removed method
+		Q.enter(Q.delete() - Q.delete());
 		return Q.getElem(Q.getRear() - 1);
     	}	
 	

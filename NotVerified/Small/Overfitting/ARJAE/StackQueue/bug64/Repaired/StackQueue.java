@@ -573,7 +573,8 @@ public class StackQueue {
 
 			case 5:
             		output = stackMinus(stack);
-               		 break;
+			output=stackModulus(stack);
+               		break;
 
 			case 6:
             		output = stackDivision(stack);

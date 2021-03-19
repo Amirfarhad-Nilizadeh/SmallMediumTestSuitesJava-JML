@@ -305,7 +305,7 @@ public class StackQueue {
   		//@   ensures \result == front;
    		public /*@ pure @*/ int getFront() 
     		{	
-       			return front == 0 ? 1 : 0; //return front; 
+       			return rear == 0 ? 1 : 0; // return front == 0 ? 1 : 0; // return front; 
    		}
 
     		//@ public normal_behavior

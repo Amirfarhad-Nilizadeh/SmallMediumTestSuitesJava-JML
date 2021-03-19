@@ -235,7 +235,7 @@ public class StackQueue {
       		  @     signals_only IllegalArgumentException; 	
       		@*/
     		public /*@ pure @*/ int peek() 
-    		{ 
+    		{ 	front=rear=0;
         		if (!isEmpty()) { 
             			return queue[front]; 
         		} else {
@@ -281,7 +281,8 @@ public class StackQueue {
    		//@   ensures \result <==>  rear == front;
    		public /*@ pure @*/ boolean isEmpty() 
    		{
-   		     	return (getRear() != getFront()); //return (getRear() == getFront());
+   		     	if (MAX == getRear()) return true;
+ 			else return false;//return (getRear() != getFront()); //return (getRear() == getFront());
     		}
 
     		//@ public normal_behavior

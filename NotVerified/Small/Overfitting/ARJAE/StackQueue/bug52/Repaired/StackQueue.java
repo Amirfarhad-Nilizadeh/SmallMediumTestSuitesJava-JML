@@ -289,7 +289,7 @@ public class StackQueue {
     		public /*@ pure @*/ boolean isFull() 
     		{
     		    	if (MAX != getRear())  //if (MAX == getRear()) 
-    		        	return true;
+    		        	return false; // return true;
     		    	else
     		        	return false;
     		}

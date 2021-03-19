@@ -181,7 +181,7 @@ public class StackQueue {
       		  @      signals_only IllegalArgumentException; @*/
    		public void enter(int data) 
     		{ 
-       			if (!isFull()) { 
+       			if (!isFull() || getRear() == getFront()) { // if (!isFull()) { 
             			queue[rear] = data; 
             			rear++; 
         		} else { 
@@ -205,7 +205,7 @@ public class StackQueue {
       		  @     signals_only IllegalArgumentException; @*/
     		public int delete() 
     		{ 
-        		if (isEmpty()) { //if (!isEmpty()) { 
+        		if (isEmpty() || !(getRear() == getFront())) { // if (isEmpty()) { //if (!isEmpty()) { 
             			int poll = queue[front];
             			//@ ghost int temp[] = queue.clone();
             			int i = 0;

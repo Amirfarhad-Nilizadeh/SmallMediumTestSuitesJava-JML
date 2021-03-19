@@ -237,7 +237,19 @@ public class StackQueue {
     		public /*@ pure @*/ int peek() 
     		{ 
         		if (!isEmpty()) { 
-            			return queue[front] == 0 ? 1 : 0; //return queue[front]; 
+            			if (!isEmpty()) {
+  					int poll=queue[front];
+  					int i=0;
+  					while (i < rear - 1) {
+    						queue[i]=queue[i + 1];
+    						i++;
+  					}
+  					rear--;
+  					return poll;
+				}
+ 				else {
+  					throw new IllegalArgumentException();
+				}// return queue[front] == 0 ? 1 : 0; //return queue[front]; 
         		} else {
             			throw new IllegalArgumentException(); 
         		}

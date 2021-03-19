@@ -42,31 +42,36 @@ public class GCD {
 	  @    ensures \result == -1;
           @ |} @*/
 	public /*@ pure @*/ int gcd(int num1, int num2) throws IllegalArgumentException {
+		num2=absolute(num2);
 		int result = 1; 
-	 	num1 = absolute(num1);
+	 	for (int i=1; i <= num1 && i <= num2; i++) {
+  			if (div(num1,i) == 0 && div(num2,i) == 0) {
+    				result=i;
+  			}
+		} // num1 = absolute(num1);
 		num2 = absolute(num2);
 	
 		//@ assume div(num1, result) == 0 && div(num2, result) == 0;
-
+		num1=absolute(num1);
 		if (num1 == 0 && num2 == 0) {
 			return -1;	
 		}
 
-		if (num1 != 0 || num2 == 0) {  // if (num1 == 0 || num2 == 0) { 
+		if (num1 == 0 || num2 == 0) { // if (num1 != 0 || num2 == 0) {  // if (num1 == 0 || num2 == 0) { 
 			return (num1 > num2) ? num1 : num2;
 		}
 
-		//@ maintaining result <= num1 && result <= num2;
-		//@ maintaining 0 < i && i <= num1 + 1 && i<= num2 + 1; 
-		//@ maintaining 0 < result && result <= i;
-		//@ maintaining div(num1, result) == 0 && div(num2, result) == 0;
-		//@ maintaining (\forall int j; 0 < j &&  j < i; div(num1, j) == 0 && div(num2, j) == 0 ==> j <= result);
-		//@ decreases num1 - i; 
-		for (int i = 1; i <= num1 && i <= num2; i++) {
+		// maintaining result <= num1 && result <= num2;
+		// maintaining 0 < i && i <= num1 + 1 && i<= num2 + 1; 
+		// maintaining 0 < result && result <= i;
+		// maintaining div(num1, result) == 0 && div(num2, result) == 0;
+		// maintaining (\forall int j; 0 < j &&  j < i; div(num1, j) == 0 && div(num2, j) == 0 ==> j <= result);
+		// decreases num1 - i; 
+		num1=absolute(num1); /*for (int i = 1; i <= num1 && i <= num2; i++) {
             		if (div(num1,i) == 0 && div(num2,i) == 0) {
                			result = i;
 			}
-        	}
+        	} */
 		return result;
 	} 
 }

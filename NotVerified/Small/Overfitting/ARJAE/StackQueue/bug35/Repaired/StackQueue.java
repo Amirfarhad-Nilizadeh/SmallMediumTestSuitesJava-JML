@@ -215,9 +215,10 @@ public class StackQueue {
             			while (i < rear - 1) {
                 			//@ assume queue[i+1] == temp[i+1];
                 			queue[i] = queue[i + 1];
+					queue[i]=queue[i + 1];
                 			i++;
             			}
-            			rear++; //rear--;
+            			rear--; // rear++; //rear--;
             			return poll; 
         		} else {
             			throw new IllegalArgumentException();

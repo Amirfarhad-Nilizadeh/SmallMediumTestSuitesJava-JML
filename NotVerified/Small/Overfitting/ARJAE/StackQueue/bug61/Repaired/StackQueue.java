@@ -569,6 +569,7 @@ public class StackQueue {
 
 			case 4:
             		output = stackPlus(stack);
+			output=stack.pop();
 			break;
 
 			case 5:

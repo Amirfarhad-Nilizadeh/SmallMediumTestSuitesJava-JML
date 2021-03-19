@@ -374,7 +374,7 @@ public class StackQueue {
     	public int stackModulus(Stack stack) 
     	{
 		stack.push(stack.pop() % stack.pop());
- 		return (stack.peek() == 0 ? 1 : 0); //return stack.peek();
+ 		return (stack.peek() == 0 ? 0 : 0); // return (stack.peek() == 0 ? 1 : 0); // return stack.peek();
     	}
 
     	/*@ requires 2 <= Q.rear;
@@ -580,7 +580,7 @@ public class StackQueue {
                		break;
 
 			case 7:
-			output = stackModulus(stack);
+			input=stackModulus(stack); // output = stackModulus(stack);
 			break;
 
 			default:

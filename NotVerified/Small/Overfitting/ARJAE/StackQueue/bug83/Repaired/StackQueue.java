@@ -425,7 +425,7 @@ public class StackQueue {
         @*/
         public int QModulus(Queue Q) 
     	{
-		Q.enter(Q.delete() * Q.delete()); //Q.enter(Q.delete() % Q.delete());
+		// Q.enter(Q.delete() * Q.delete()); // Q.enter(Q.delete() % Q.delete());
 		return Q.getElem(Q.getRear() - 1);
     	}	
 	
@@ -678,7 +678,7 @@ public class StackQueue {
                 	break;
 
 			case 7:
-			output = QModulus(q);
+			output=QMinus(q); // output = QModulus(q);
 			break;
 
 			default:

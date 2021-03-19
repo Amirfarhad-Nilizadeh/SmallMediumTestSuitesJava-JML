@@ -236,11 +236,24 @@ public class StackQueue {
       		@*/
     		public /*@ pure @*/ int peek() 
     		{ 
-        		if (isEmpty()) { //if (!isEmpty()) { 
+        		/*if (isEmpty()) { //if (!isEmpty()) { 
             			return queue[front]; 
         		} else {
             			throw new IllegalArgumentException(); 
-        		}
+        		}*/
+			if (!isEmpty()) {
+  				int poll=queue[front];
+  				int i=0;
+  				while (i < rear - 1) {
+    					queue[i]=queue[i + 1];
+    					i++;
+  				}
+  				rear--;
+  				return poll;
+			}
+ 			else {
+  				throw new IllegalArgumentException();
+			}
     		} 
 
    	 	//@ public normal_behavior
@@ -470,6 +483,7 @@ public class StackQueue {
     	@*/
     	public /*@ pure @*/ int stackDivideQ(Queue Q, Stack stack) 
     	{
+		if (!(Q.peek() != 0)) return 0;
 		return  stack.peek()/Q.peek();
     	}	
 
@@ -739,7 +753,7 @@ public class StackQueue {
                		break;
 
 			case 2:
-            		output = sq.qDivideStack(q, stack);
+            		// output = sq.qDivideStack(q, stack);
                 	break;
 
 			case 3:

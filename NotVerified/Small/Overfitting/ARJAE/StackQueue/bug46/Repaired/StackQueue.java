@@ -266,6 +266,12 @@ public class StackQueue {
     		public /*@ pure @*/ int search(int key)
     		{
         		int index = 0;
+			while (0 <= index) {
+  				if (getElem(index) == key) {
+    					return index;
+  				}
+  				index--;
+			}
         		//@ maintaining 0 <= index && index <= rear;
         		//@ maintaining \forall int i; 0 <= i && i < index; queue[i] != key;
         		while (index >= rear) { //while (index < rear) {

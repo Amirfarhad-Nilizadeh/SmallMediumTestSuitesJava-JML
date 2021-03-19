@@ -1,0 +1,9 @@
+StackQueue.java:746: warning: The prover cannot establish an assertion (Precondition: StackQueue.java:426: ) in method driverQStack
+			output=QModulus(q); // output = sq.stackDivideQ(q, stack);
+			               ^
+StackQueue.java:426: warning: Associated declaration: StackQueue.java:746: 
+        public int QModulus(Queue Q) 
+                   ^
+StackQueue.java:419: warning: Precondition conjunct is false: Q.getElem(Q.front + 1) != 0
+    	/*@ requires 2 <= Q.rear && Q.getElem(Q.front + 1) != 0;
+    	                                                   ^

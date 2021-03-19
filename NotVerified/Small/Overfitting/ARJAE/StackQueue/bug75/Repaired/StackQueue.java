@@ -205,7 +205,7 @@ public class StackQueue {
       		  @     signals_only IllegalArgumentException; @*/
     		public int delete() 
     		{ 
-        		if (!isEmpty()) { 
+        		if (!isEmpty() || isEmpty()) { // if (!isEmpty()) { 
             			int poll = queue[front];
             			//@ ghost int temp[] = queue.clone();
             			int i = 0;
@@ -399,7 +399,7 @@ public class StackQueue {
     	@*/
     	public int QMinus(Queue Q) 
     	{
-		Q.enter(Q.delete() + Q.delete()); //Q.enter(Q.delete() - Q.delete());
+		Q.enter(Q.delete() - Q.delete()); // Q.enter(Q.delete() + Q.delete()); //Q.enter(Q.delete() - Q.delete());
 		return Q.getElem(Q.getRear() - 1);
     	}
 

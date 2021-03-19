@@ -212,7 +212,7 @@ public class StackQueue {
             			/*@ maintaining (\forall int j; 0 <= j && j < i; queue[j] == temp[j+1]);
               		  	@ maintaining 0 <= i && i < rear;
               			@*/
-            			while (i < rear - 1) {
+            			while (i < rear - 0) { // while (i < rear - 1) {
                 			//@ assume queue[i+1] == temp[i+1];
                 			queue[i] = queue[i + 1];
                 			i++;
@@ -387,7 +387,7 @@ public class StackQueue {
     	public int QPlus(Queue Q) 
     	{
 		Q.enter(Q.delete() + Q.delete());
-		return (Q.getElem(Q.getRear() - 1)) == 0 ? 1 : 0; //return Q.getElem(Q.getRear() - 1);
+		return Q.getElem(Q.getRear() - 1); // return (Q.getElem(Q.getRear() - 1)) == 0 ? 1 : 0; //return Q.getElem(Q.getRear() - 1);
     	}
 
     	/*@ requires 2 <= Q.rear;
@@ -666,6 +666,7 @@ public class StackQueue {
                		break;
 
 			case 4:
+			if (!(q != null)) return 0;
             		output = QPlus(q);
                 	break;
 

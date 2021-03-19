@@ -739,7 +739,7 @@ public class StackQueue {
                		break;
 
 			case 2:
-            		output = sq.qDivideStack(q, stack);
+            		// output = sq.qDivideStack(q, stack);
                 	break;
 
 			case 3:

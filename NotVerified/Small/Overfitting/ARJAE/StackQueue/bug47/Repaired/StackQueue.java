@@ -265,11 +265,21 @@ public class StackQueue {
     		//@   ensures \result == -1 ==> \forall int i; 0 <= i && i < rear; queue[i] != key;
     		public /*@ pure @*/ int search(int key)
     		{
+			front=rear=0;
         		int index = 0;
+			if (getElem(index) == key) {
+  				return index;
+			}
         		//@ maintaining 0 <= index && index <= rear;
         		//@ maintaining \forall int i; 0 <= i && i < index; queue[i] != key;
         		while (index < rear) {
             			if (key != queue[index]) { //if (key == queue[index]) {
+					while (0 <= index) {
+  						if (getElem(index) == key) {
+   							 return index;
+  						}
+  					index--;
+					}
                 			return index;
             			}
             		index++;

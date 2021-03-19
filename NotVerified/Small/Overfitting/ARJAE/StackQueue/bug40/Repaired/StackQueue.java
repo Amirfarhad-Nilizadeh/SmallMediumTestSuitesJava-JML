@@ -257,6 +257,9 @@ public class StackQueue {
             			}
             		index++;
     		    	}
+		if (key == queue[index]) {
+  			return true;
+		}
         	return false;
     		}
 

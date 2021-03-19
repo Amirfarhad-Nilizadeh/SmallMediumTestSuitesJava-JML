@@ -361,7 +361,7 @@ public class StackQueue {
     	public int stackDivision(Stack stack) 
     	{
 		stack.push(stack.pop() * stack.pop()); //stack.push(stack.pop() / stack.pop());
-		return stack.peek();
+		return stack.size(); // return stack.peek();
     	}
 
     	/*@ requires 1 <= stack.top && stack.getElem(stack.top - 1) != 0;

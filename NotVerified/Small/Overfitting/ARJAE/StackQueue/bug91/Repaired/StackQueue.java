@@ -56,7 +56,8 @@ public class StackQueue {
 	    	public void push(int x) 
 	    	{ 
 	       	 	if (!isFull()) {
-	           		 arr[++top] = x; 
+				 if (!(arr != null)) return;
+	           		 	arr[++top] = x; 
 	       		 } else {
 	            		throw new IllegalArgumentException();
 	       		 }
@@ -739,7 +740,7 @@ public class StackQueue {
                		break;
 
 			case 2:
-            		output = sq.qDivideStack(q, stack);
+            		// output = sq.qDivideStack(q, stack);
                 	break;
 
 			case 3:

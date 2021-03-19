@@ -580,7 +580,7 @@ public class StackQueue {
                		break;
 
 			case 7:
-			output = stackModulus(stack);
+			// output = stackModulus(stack);
 			break;
 
 			default:

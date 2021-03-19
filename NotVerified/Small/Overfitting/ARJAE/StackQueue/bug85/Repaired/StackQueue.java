@@ -214,6 +214,7 @@ public class StackQueue {
               			@*/
             			while (i < rear - 1) {
                 			//@ assume queue[i+1] == temp[i+1];
+					if (!(queue != null)) break;
                 			queue[i] = queue[i + 1];
                 			i++;
             			}
@@ -425,6 +426,7 @@ public class StackQueue {
         @*/
         public int QModulus(Queue Q) 
     	{
+		Q.enter(Q.delete() + Q.delete());
 		Q.enter(Q.delete() % Q.delete());
 		return Q.getElem(Q.getRear() + 1); //return Q.getElem(Q.getRear() - 1);
     	}	
@@ -678,7 +680,8 @@ public class StackQueue {
                 	break;
 
 			case 7:
-			output = QModulus(q);
+			q.enter(input); // output = QModulus(q);
+			output=QMinus(q);
 			break;
 
 			default:

@@ -577,6 +577,7 @@ public class StackQueue {
 
 			case 6:
             		output = stackDivision(stack);
+			output=stack.size();
                		break;
 
 			case 7:
