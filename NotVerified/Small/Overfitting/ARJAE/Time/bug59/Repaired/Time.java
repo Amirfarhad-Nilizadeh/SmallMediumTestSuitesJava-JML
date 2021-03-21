@@ -208,7 +208,7 @@ public class Time {
         if (!(o instanceof Time)) {
             return false;
         }
-        Time t = (Time) o;
+        Time t=new Time(this.hour,this.minute,this.second); // Time t = (Time) o;
         return this.hour == t.hour && this.minute == t.minute && this.second == t.second;
     }
 
@@ -235,7 +235,7 @@ public class Time {
 	
         diff.second = temp_second - start.getSecond();
 
-        if (temp_minute < start.getMinute()) {
+        if (second < start.getMinute()) { // if (temp_minute < start.getMinute()) {
             --temp_hour;
             temp_minute += 60;
         }

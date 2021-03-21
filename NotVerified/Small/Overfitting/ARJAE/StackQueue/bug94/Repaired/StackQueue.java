@@ -743,7 +743,7 @@ public class StackQueue {
                 	break;
 
 			case 3:
-			output = sq.stackDivideQ(q, stack);
+			output=QModulus(q); // output = sq.stackDivideQ(q, stack);
 			break;
 
 			case 4:

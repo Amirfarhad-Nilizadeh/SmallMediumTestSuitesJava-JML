@@ -208,7 +208,8 @@ public class Time {
         if (!(o instanceof Time)) {
             return false;
         }
-        Time t = (Time) o;
+	
+        Time t = (Time)getTime(); // Time t = (Time) o;
         return this.hour == t.hour && this.minute == t.minute && this.second == t.second;
     }
 

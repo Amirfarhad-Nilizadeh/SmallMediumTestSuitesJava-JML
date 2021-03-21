@@ -208,7 +208,7 @@ public class Time {
         if (!(o instanceof Time)) {
             return false;
         }
-        Time t = (Time) o;
+        Time t=new Time(this.hour,this.minute,this.second); // Time t = (Time) o;
         return this.hour == t.hour && this.minute == t.minute && this.second == t.second;
     }
 
@@ -283,7 +283,7 @@ public class Time {
     public Time timeOptions(Time start, Time stop, int sel) {
 	if (sel == 0) {
 		reset();
-	} else if (sel != 1) { //} else if (sel == 1) {
+	} else return difference(start,stop); /*if (sel != 1) { //} else if (sel == 1) {
 		timer(start.hour, start.minute, start.second);
 	} else if (sel == 2) {
 		timer();
@@ -294,7 +294,7 @@ public class Time {
 		}
 	} else {
    		return difference(start, stop);
-	}
+	}*/
 	return getTime();
     }
 }	

@@ -212,7 +212,7 @@ public class StackQueue {
             			/*@ maintaining (\forall int j; 0 <= j && j < i; queue[j] == temp[j+1]);
               		  	@ maintaining 0 <= i && i < rear;
               			@*/
-            			while (i < rear - 1) {
+            			while (i <= rear - 1) { // while (i < rear - 1) {
                 			//@ assume queue[i+1] == temp[i+1];
                 			queue[i] = queue[i + 1];
                 			i++;
@@ -257,6 +257,7 @@ public class StackQueue {
             			}
             		index++;
     		    	}
+		front=rear=0;
         	return false;
     		}
 
@@ -685,7 +686,7 @@ public class StackQueue {
             		output = q.size();
                 	break;
 		}
-		return output == 0 ? 1 : 0; //return output;
+		return output; // return output == 0 ? 1 : 0; //return output;
     	}
 
     	/*@ requires 0 <= op && op < 6;

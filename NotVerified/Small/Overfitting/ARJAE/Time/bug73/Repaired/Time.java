@@ -177,7 +177,8 @@ public class Time {
     public void reset()
     {
         second = 0;
-        minute = 0; 
+        // minute = 0;
+	timer(); 
         hour = 0;
     }
 
@@ -208,7 +209,7 @@ public class Time {
         if (!(o instanceof Time)) {
             return false;
         }
-        Time t = (Time) o;
+        Time t=new Time(this.hour,this.minute,this.second); // Time t = (Time) o;
         return this.hour == t.hour && this.minute == t.minute && this.second == t.second;
     }
 
@@ -287,7 +288,7 @@ public class Time {
 		timer(start.hour, start.minute, start.second);
 	} else if (sel == 2) {
 		timer();
-	} else if (sel == 3) {
+	} else if (sel == 3 && !(this.minute != start.minute)) {// if (sel == 3) {
 		if (start.equals(stop)) {
 			start.reset();
 			if (start.getTime() != null)//return start.getTime();

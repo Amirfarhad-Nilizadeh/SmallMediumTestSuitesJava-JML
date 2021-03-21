@@ -208,7 +208,7 @@ public class Time {
         if (!(o instanceof Time)) {
             return false;
         }
-        Time t = (Time) o;
+        Time t=(Time)getTime(); // Time t = (Time) o;
         return this.hour == t.hour && this.minute == t.minute && this.second == t.second;
     }
 
@@ -228,16 +228,18 @@ public class Time {
         int temp_minute = stop.getMinute();
         int temp_hour = stop.getHour();
        
-        if (temp_second < start.getSecond()) {
+        /* if (temp_second < start.getSecond()) {
             --temp_minute;
             temp_second += 60;
-        }
+        } */
+	start.reset();
 	
         diff.second = temp_second - start.getSecond();
 
         if (temp_minute >= start.getMinute()) { //if (temp_minute < start.getMinute()) {
+	    start.reset();
             --temp_hour;
-            temp_minute += 60;
+            // temp_minute += 60;
         }
 
         diff.minute = temp_minute - start.getMinute();
@@ -252,7 +254,7 @@ public class Time {
     //@    	ensures \result.equals(trustedDifference(stop,start));
     public /*@ pure @*/ Time difference(Time start, Time stop)
     {
-	if (stop.later_than(start)) {
+	if (stop.later_than(start) && this.second > start.second) { // if (stop.later_than(start)) {
             return trustedDifference(start, stop);
 	} else {
             return trustedDifference(stop, start);

@@ -187,7 +187,7 @@ public class Time {
     public /*@ pure @*/ boolean later_than(Time start) 
     {
         if (this.hour != start.hour) {
-            return this.hour > start.hour;
+            return this.hour > getTime().hour; // return this.hour > start.hour;
         } else if (this.minute != start.minute) {
             return this.minute > start.minute;
         } else { 
@@ -208,7 +208,7 @@ public class Time {
         if (!(o instanceof Time)) {
             return false;
         }
-        Time t = (Time) o;
+        Time t=new Time(this.hour,this.minute,this.second); // Time t = (Time) o;
         return this.hour == t.hour && this.minute == t.minute && this.second == t.second;
     }
 
@@ -281,7 +281,7 @@ public class Time {
       @ |}
     @*/     
     public Time timeOptions(Time start, Time stop, int sel) {
-	if (sel == 0) {
+	/*if (sel == 0) {
 		reset();
 	} else if (sel == 1) {
 		timer(start.hour, start.minute, start.second);
@@ -294,6 +294,9 @@ public class Time {
 		}
 	} else {
    		return difference(start, stop);
+	}*/
+	while (!isTimeZero()) {
+  		decr();
 	}
 	return getTime();
     }

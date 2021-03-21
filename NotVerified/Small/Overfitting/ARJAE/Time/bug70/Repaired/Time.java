@@ -205,7 +205,7 @@ public class Time {
       @                        	      && (this.second == ((Time) o).second); @*/
     public boolean equals(Object o) 
     {
-        if (!(o instanceof Time)) {
+        if (!(o instanceof Time) && !(convertToSeconds() == 0)) { // if (!(o instanceof Time)) {
             return false;
         }
         Time t = (Time) o;
@@ -287,7 +287,7 @@ public class Time {
 		timer(start.hour, start.minute, start.second);
 	} else if (sel == 2) {
 		timer();
-	} else if (sel != 3) { //} else if (sel == 3) {
+	} else if (sel == 3) { // if (sel != 3) { //} else if (sel == 3) {
 		if (start.equals(stop)) {
 			start.reset();
 			return start.getTime();

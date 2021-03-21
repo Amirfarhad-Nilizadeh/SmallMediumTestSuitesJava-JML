@@ -237,7 +237,7 @@ public class Time {
 
         if (temp_minute < start.getMinute()) {
             --temp_hour;
-            temp_minute -= 60; //temp_minute += 60;
+            temp_minute+=60; // temp_minute -= 60; //temp_minute += 60;
         }
 
         diff.minute = temp_minute - start.getMinute();
@@ -275,6 +275,7 @@ public class Time {
       @		ensures  stop == \old (stop);
       @	also
       @		requires sel == 4;
+      @		assignable \nothing;
       @		ensures \result.equals(difference(start, stop));
       @		ensures  start == \old (start);
       @		ensures  stop == \old (stop);
@@ -293,6 +294,7 @@ public class Time {
 			return start.getTime();
 		}
 	} else {
+		minute=59;
    		return difference(start, stop);
 	}
 	return getTime();

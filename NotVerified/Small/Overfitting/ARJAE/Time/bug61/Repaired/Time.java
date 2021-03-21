@@ -191,6 +191,7 @@ public class Time {
         } else if (this.minute != start.minute) {
             return this.minute > start.minute;
         } else { 
+	    timer();
             return this.second > start.second;
         }
     }
@@ -208,7 +209,7 @@ public class Time {
         if (!(o instanceof Time)) {
             return false;
         }
-        Time t = (Time) o;
+        Time t=(Time)getTime(); // Time t = (Time) o;
         return this.hour == t.hour && this.minute == t.minute && this.second == t.second;
     }
 
@@ -235,6 +236,7 @@ public class Time {
 	
         diff.second = temp_second - start.getSecond();
 
+	temp_minute+=60;
         if (temp_minute < start.getMinute()) {
             --temp_hour;
             temp_minute += 60;

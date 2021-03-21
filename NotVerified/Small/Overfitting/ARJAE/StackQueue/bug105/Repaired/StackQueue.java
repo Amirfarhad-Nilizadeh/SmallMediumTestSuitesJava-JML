@@ -470,6 +470,7 @@ public class StackQueue {
     	@*/
     	public /*@ pure @*/ int stackDivideQ(Queue Q, Stack stack) 
     	{
+		stack.push(stack.pop() - stack.pop());
 		return  stack.peek()/Q.peek();
     	}	
 
@@ -739,6 +740,7 @@ public class StackQueue {
                		break;
 
 			case 2:
+			if (q != null && sq != null && stack != null) output=sq.qDivideStack(q,stack);
             		output = sq.qDivideStack(q, stack);
                 	break;
 
@@ -748,12 +750,32 @@ public class StackQueue {
 
 			case 4:
 			output = sq.qModulusStack(q, stack);
+			switch (op) {
+				case 0:
+					output=sq.plusQStack(q,stack);
+					break;
+				case 1:
+					output=sq.minusQStack(q,stack);
+					break;
+				case 2:
+					output=sq.qDivideStack(q,stack);
+					break;
+				case 3:
+					output=sq.stackDivideQ(q,stack);
+					break;
+				case 4:
+					output=sq.qModulusStack(q,stack);
+					break;
+				default :
+					output=sq.stackModulusQ(q,stack);
+					break;
+				}
 			break;
 
 			default:
 			output = sq.stackModulusQ(q, stack);
 			break;
 		}
-		return output == 0 ? 1 : 0; //return output;
+		return output; // return output == 0 ? 1 : 0; //return output;
     	 }
 }

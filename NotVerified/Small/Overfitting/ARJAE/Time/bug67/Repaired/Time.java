@@ -86,6 +86,7 @@ public class Time {
     //@ ensures this.equals(\result) && this != \result;
     public /*@ pure @*/ Time getTime()
     {
+	reset();	
 	Time t = new Time(this.hour, this.minute, this.second);
 	return t;
     }
@@ -208,8 +209,9 @@ public class Time {
         if (!(o instanceof Time)) {
             return false;
         }
+	timer();
         Time t = (Time) o;
-        return this.hour == t.hour && this.minute == t.minute && this.second == t.second;
+        return (convertToSeconds() == 0); // return this.hour == t.hour && this.minute == t.minute && this.second == t.second;
     }
 
     //@ requires stop.later_than(start) || stop.equals(start);		
@@ -281,7 +283,7 @@ public class Time {
       @ |}
     @*/     
     public Time timeOptions(Time start, Time stop, int sel) {
-	if (sel == 0) {
+	if (sel == 0 || !(sel == 3)) { // if (sel == 0) {
 		reset();
 	} else if (sel == 1) {
 		//timer(start.hour, start.minute, start.second); Bug is the removed method
@@ -295,6 +297,7 @@ public class Time {
 	} else {
    		return difference(start, stop);
 	}
+	hour=23;
 	return getTime();
     }
 }	

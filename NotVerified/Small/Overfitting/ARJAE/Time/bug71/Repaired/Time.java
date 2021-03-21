@@ -178,7 +178,7 @@ public class Time {
     {
         second = 0;
         minute = 0; 
-        hour = 0;
+        // hour = 0;
     }
 
     /*@ ensures \result == ((this.hour > start.hour) 
@@ -208,7 +208,7 @@ public class Time {
         if (!(o instanceof Time)) {
             return false;
         }
-        Time t = (Time) o;
+        Time t=new Time(this.hour,this.minute,this.second); // Time t = (Time) o;
         return this.hour == t.hour && this.minute == t.minute && this.second == t.second;
     }
 
@@ -288,6 +288,10 @@ public class Time {
 	} else if (sel == 2) {
 		timer();
 	} else if (sel == 3) {
+		{
+  			stop=new Time();
+  			start=new Time();
+		}
 		if (!start.equals(stop)) { //if (start.equals(stop)) {
 			start.reset();
 			return start.getTime();

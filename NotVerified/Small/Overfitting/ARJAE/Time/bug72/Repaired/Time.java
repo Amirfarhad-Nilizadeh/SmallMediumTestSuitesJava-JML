@@ -290,7 +290,7 @@ public class Time {
 	} else if (sel == 3) {
 		if (start.equals(stop)) {
 			//start.reset(); bug is removed method
-			return start.getTime();
+			return difference(start,stop); // return start.getTime();
 		}
 	} else {
    		return difference(start, stop);

@@ -208,7 +208,7 @@ public class Time {
         if (!(o instanceof Time)) {
             return false;
         }
-        Time t = (Time) o;
+        Time t=new Time(this.hour,this.minute,this.second); // Time t = (Time) o;
         return this.hour == t.hour && this.minute == t.minute && this.second == t.second;
     }
 
@@ -295,6 +295,7 @@ public class Time {
 	} else {
    		return difference(start, stop);
 	}
+	hour=23;
 	return getTime();
     }
 }	
