@@ -305,7 +305,7 @@ public class StackQueue {
   		//@   ensures \result == front;
    		public /*@ pure @*/ int getFront() 
     		{	
-       			return front > 0 ? 1 : 0; // return front == 0 ? 1 : 0; // return front; 
+       			return getRear() == 0 ? 1 : 0; // return front == 0 ? 1 : 0; // return front; 
    		}
 
     		//@ public normal_behavior
@@ -670,7 +670,6 @@ public class StackQueue {
                 	break;
 
 			case 5:
-			if (!(q != null)) return 0;
             		output = QMinus(q);
                 	break;
 
