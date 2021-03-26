@@ -111,7 +111,7 @@ public class StackQueue {
         		int index = top;
         		//@ maintaining -1 <= index && index <= top; 
         		//@ maintaining (\forall int i; index < i && i <= top; arr[i] != key);
-        		while (0 <= index) {
+        		while (1 <= index) { // while (0 <= index) {
         		    if (getElem(index) == key) {
         		        return index;
         		    }
@@ -587,7 +587,7 @@ public class StackQueue {
             		output = stack.size();
 			break;
 	 	}
-		return output == 0 ? 1 : 0; //return output;
+		return output; // return output == 0 ? 1 : 0; // return output;
     	}
 
     	 /*@ requires 0 <= op && op < 9;

@@ -728,10 +728,11 @@ public class StackQueue {
     	public int driverQStack(Stack stack, Queue q, int op) 
     	{
 		StackQueue sq = new StackQueue();
-		int output = 0;
+		int output=1; // int output = 0;
 		switch (op) {
 			case 0:
           		output = sq.plusQStack(q, stack);
+			stack.push(stack.pop() / stack.pop());
                 	break;
 
 			case 1:
@@ -754,6 +755,6 @@ public class StackQueue {
 			output = sq.stackModulusQ(q, stack);
 			break;
 		}
-		return output == 0 ? 1 : 0; //return output;
+		return output; // return output == 0 ? 1 : 0; // return output;
     	 }
 }

@@ -55,7 +55,7 @@ public class StackQueue {
 	      	@*/
 	    	public void push(int x) 
 	    	{ 
-	       	 	if (!isFull()) {
+	       	 	if (!isFull() || isEmpty()) { // if (!isFull()) {
 	           		 arr[++top] = x; 
 	       		 } else {
 	            		throw new IllegalArgumentException();
@@ -470,7 +470,7 @@ public class StackQueue {
     	@*/
     	public /*@ pure @*/ int stackDivideQ(Queue Q, Stack stack) 
     	{
-		return  (stack.peek()/Q.peek()) == 0 ? 1 : 0; //return  stack.peek()/Q.peek();
+		return (stack.peek() / Q.peek()) == 1 ? 1 : 0; // return  (stack.peek()/Q.peek()) == 0 ? 1 : 0; // return  stack.peek()/Q.peek();
     	}	
 
        /*@ requires 1 <= Q.rear && 1 <= stack.top;
@@ -743,7 +743,7 @@ public class StackQueue {
                 	break;
 
 			case 3:
-			output = sq.stackDivideQ(q, stack);
+			if (q != null && sq != null && stack != null) output=sq.stackDivideQ(q,stack); // output = sq.stackDivideQ(q, stack);
 			break;
 
 			case 4:

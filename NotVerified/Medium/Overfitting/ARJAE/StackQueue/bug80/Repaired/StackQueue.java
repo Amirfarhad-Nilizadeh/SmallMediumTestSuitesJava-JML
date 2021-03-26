@@ -412,8 +412,8 @@ public class StackQueue {
     	@*/
     	public int QDivision(Queue Q) 
     	{
-		//Q.enter(Q.delete() / Q.delete()); Bug is removed method
-		return Q.getElem(Q.getRear() - 1);
+		// Q.enter(Q.delete() / Q.delete()); Bug is removed method
+		return Q.getElem(Q.size() - 1); // return Q.getElem(Q.getRear() - 1);
     	}
 
     	/*@ requires 2 <= Q.rear && Q.getElem(Q.front + 1) != 0;
@@ -674,7 +674,8 @@ public class StackQueue {
                 	break;
 
 			case 6:
-            		output = QDivision(q);
+            		output=q.isContain(input) ? 1 : 0; // output = QDivision(q);
+			q.enter(input);
                 	break;
 
 			case 7:

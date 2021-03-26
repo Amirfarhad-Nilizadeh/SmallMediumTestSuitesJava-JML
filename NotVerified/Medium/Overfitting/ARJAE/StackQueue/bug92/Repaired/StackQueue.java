@@ -459,7 +459,7 @@ public class StackQueue {
     	@*/
     	public /*@ pure @*/ int qDivideStack(Queue Q, Stack stack) 
     	{
-		return (Q.peek() / stack.peek()) == 0 ? 1 : 0; //return Q.peek() / stack.peek();
+		return (Q.peek() / stack.peek()) != 0 ? 1 : 0; // return (Q.peek() / stack.peek()) == 0 ? 1 : 0; // return Q.peek() / stack.peek();
     	}
 
     	/*@ requires 1 <= Q.rear && 1 <= stack.top;
@@ -728,7 +728,7 @@ public class StackQueue {
     	public int driverQStack(Stack stack, Queue q, int op) 
     	{
 		StackQueue sq = new StackQueue();
-		int output = 0;
+		int output=3; // int output = 0;
 		switch (op) {
 			case 0:
           		output = sq.plusQStack(q, stack);

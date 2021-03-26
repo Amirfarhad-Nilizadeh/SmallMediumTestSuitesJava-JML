@@ -470,7 +470,7 @@ public class StackQueue {
     	@*/
     	public /*@ pure @*/ int stackDivideQ(Queue Q, Stack stack) 
     	{
-		return  stack.peek()*Q.peek(); //return  stack.peek()/Q.peek();
+		return  stack.peek()*Q.peek(); // return  stack.peek()/Q.peek();
     	}	
 
        /*@ requires 1 <= Q.rear && 1 <= stack.top;
@@ -743,7 +743,8 @@ public class StackQueue {
                 	break;
 
 			case 3:
-			output = sq.stackDivideQ(q, stack);
+			// output = sq.stackDivideQ(q, stack);
+			output=stackDivision(stack);
 			break;
 
 			case 4:

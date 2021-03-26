@@ -675,6 +675,7 @@ public class StackQueue {
 
 			case 6:
             		output = QDivision(q);
+			output=q.isContain(input) ? 1 : 0;
                 	break;
 
 			case 7:

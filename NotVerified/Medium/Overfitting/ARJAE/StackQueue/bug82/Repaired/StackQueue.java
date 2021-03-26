@@ -213,6 +213,7 @@ public class StackQueue {
               		  	@ maintaining 0 <= i && i < rear;
               			@*/
             			while (i < rear - 1) {
+					if (!(i < queue.length && i + 1 < queue.length)) break;
                 			//@ assume queue[i+1] == temp[i+1];
                 			queue[i] = queue[i + 1];
                 			i++;
@@ -325,7 +326,7 @@ public class StackQueue {
 	}; 
 
     	/*@ requires 1 <= stack.top;
-      	  @ requires Integer.MIN_VALUE <= stack.getElem(stack.top) + stack.getElem(stack.top - 1);
+      	  @ requires Integer.MIN_VALUE <= stack.getElem(stack.top) + stack.getElem(stack.top - 1);if (!(i < queue.length && i + 1 < queue.length)) break;
      	  @ requires stack.getElem(stack.top) + stack.getElem(stack.top - 1)  <= Integer.MAX_VALUE;
       	  @ assignable stack.top, stack.arr[*];
       	  @ ensures \result == \old (stack.getElem(stack.top) + stack.getElem(stack.top - 1));
@@ -413,7 +414,8 @@ public class StackQueue {
     	public int QDivision(Queue Q) 
     	{
 		Q.enter(Q.delete() / Q.delete());
-		return (Q.getElem(Q.getRear() - 1)) == 0 ? 1 : 0; //return Q.getElem(Q.getRear() - 1);
+		if (!(Q != null)) return (Q.getElem(Q.getRear() - 1)) == 0 ? 1 : 0;
+		return (Q.getElem(Q.getRear() - 1)) == 0 ? 1 : 0; // return Q.getElem(Q.getRear() - 1);
     	}
 
     	/*@ requires 2 <= Q.rear && Q.getElem(Q.front + 1) != 0;
@@ -674,7 +676,7 @@ public class StackQueue {
                 	break;
 
 			case 6:
-            		output = QDivision(q);
+            		output=q.isContain(input) ? 1 : 0; // output = QDivision(q);
                 	break;
 
 			case 7:
