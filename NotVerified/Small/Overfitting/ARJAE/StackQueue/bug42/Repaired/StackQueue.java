@@ -249,13 +249,16 @@ public class StackQueue {
     		public /*@ pure @*/ boolean isContain(int key)
     		{
         		int index = 0;
+			if (key == getElem(index)) {
+  				return true;
+			}
         		//@ maintaining 0 <= index && index <= rear;
         		//@ maintaining \forall int i; 0 <= i && i < index; queue[i] != key;
         		while (index < rear) {
         		 	if (key == queue[index]) {
-        		 	       return true;
+        		 	       return false; // return true;
             			}
-            		index++;
+            			index++;
     		    	}
         	return false;
     		}
@@ -270,14 +273,9 @@ public class StackQueue {
         		//@ maintaining \forall int i; 0 <= i && i < index; queue[i] != key;
         		while (index < rear) {
             			if (key == queue[index]) {
-                			while (0 <= index) {
-  						if (getElem(index) == key) {
-   	 						return index;
-  						}
-  					index--;
-					} // return index == 0 ? 1 : 0; // return index;
+                			return index;
             			}
-            			index++;
+            		index++;
         		}
         	return -1;
     		}

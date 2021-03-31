@@ -253,15 +253,9 @@ public class StackQueue {
         		//@ maintaining \forall int i; 0 <= i && i < index; queue[i] != key;
         		while (index < rear) {
         		 	if (key == queue[index]) {
-				       while (0 <= index) {
-  						if (key == getElem(index)) {
-    							return true;
-  						}
-  						index--;
-					}
-        		 	       return false; // return true;
+        		 	       return true;
             			}
-            			index++;
+            		index++;
     		    	}
         	return false;
     		}
@@ -276,9 +270,9 @@ public class StackQueue {
         		//@ maintaining \forall int i; 0 <= i && i < index; queue[i] != key;
         		while (index < rear) {
             			if (key == queue[index]) {
-                			return index;
+                			return index < 0 ? 1 : 0; // return index == 0 ? 1 : 0; // return index;
             			}
-            		index++;
+            			index++;
         		}
         	return -1;
     		}

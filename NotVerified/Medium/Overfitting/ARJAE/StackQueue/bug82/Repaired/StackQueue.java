@@ -326,7 +326,7 @@ public class StackQueue {
 	}; 
 
     	/*@ requires 1 <= stack.top;
-      	  @ requires Integer.MIN_VALUE <= stack.getElem(stack.top) + stack.getElem(stack.top - 1);if (!(i < queue.length && i + 1 < queue.length)) break;
+      	  @ requires Integer.MIN_VALUE <= stack.getElem(stack.top) + stack.getElem(stack.top - 1);
      	  @ requires stack.getElem(stack.top) + stack.getElem(stack.top - 1)  <= Integer.MAX_VALUE;
       	  @ assignable stack.top, stack.arr[*];
       	  @ ensures \result == \old (stack.getElem(stack.top) + stack.getElem(stack.top - 1));
@@ -415,7 +415,7 @@ public class StackQueue {
     	{
 		Q.enter(Q.delete() / Q.delete());
 		if (!(Q != null)) return (Q.getElem(Q.getRear() - 1)) == 0 ? 1 : 0;
-		return (Q.getElem(Q.getRear() - 1)) == 0 ? 1 : 0; // return Q.getElem(Q.getRear() - 1);
+		return (Q.getElem(Q.getRear() - 1)) == 0 ? 1 : 0; //return Q.getElem(Q.getRear() - 1);
     	}
 
     	/*@ requires 2 <= Q.rear && Q.getElem(Q.front + 1) != 0;
